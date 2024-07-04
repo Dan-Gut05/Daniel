@@ -1,0 +1,93 @@
+""""
+
+
+os.system
+with open(.csv,'r',encoding='utf-8') as entrada:
+contenido = csv.DictReader(entrada)
+for linea in contenido:
+    vNIF = linea[NIF]
+    vNombre = linea[Nombre]
+    vEdad = linea[Edad]
+    
+        
+    
+"""
+import os
+
+BANDERA = True
+
+def VER_NOMBRE():
+    try:
+        vNombre = input()
+        if len(vNombre) >= 8:
+            print("")
+    except:
+        print("Nombre inválido, intenta de nuevo")       
+
+
+def VER_EDAD():
+    try:
+        vEdad = int(input)
+        if vEdad >= 0 :
+            print("")
+    except:
+        print("Edad inválido, intenta de nuevo")
+
+
+def VER_NIF():
+    try:
+        vNIF = input()
+        if "-" in vNIF and len(vNIF) == 12:
+            print("")
+    except:
+        print("NIF inválido, intenta de nuevo")
+
+vNIF= None
+vNombre = None
+vEdad = None
+
+os.system
+
+while BANDERA:
+    try:
+        opcion = int(input("1. Grabar\n2.Buscar\n3.Imprimir certificados\n4.Salir\n"))
+
+        if opcion == 1:
+            print("¿Cual es su NIF?\n")
+            VER_NIF()
+            print("¿Cual es su nombre?\n")
+            VER_NOMBRE()
+            print("¿Cual es su edad?\n")
+            VER_EDAD()
+        
+
+        elif opcion == 2:
+            Comprobar_NIF = input("ingrese su NIF\n")
+            if Comprobar_NIF == vNIF:
+                print(vNIF, vNombre, vEdad)
+
+
+            if "SP" in vNIF:
+                print("Es de españa")
+            else: 
+                print("Es de Unión Europea")
+
+
+        elif opcion == 3:
+            vImprimir = int(input("1. Nacimiento\n2. Estado conyugal\n3. Pertenencia a Union Europea"))
+            if vImprimir == 1:
+                print("Certificado de nacimiento\n", vNIF, vNombre,vEdad)
+
+            elif vImprimir == 2:
+                print("Certificado de Conyugal\n", vNIF, vNombre,vEdad)
+            elif vImprimir == 3:
+                print("Certificado de pertenencia a la Unión Europea\n", vNIF, vNombre,vEdad)
+                
+                
+        elif opcion == 4:
+            print("Saliendo del programa")
+            BANDERA = False
+        else:
+            print("opción inválida")
+    except:
+        print("")
